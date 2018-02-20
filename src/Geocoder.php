@@ -67,8 +67,7 @@ class Geocoder
         $geocodingResponse = json_decode($response->getBody());
 
         // Exception for google api error response
-        if(isset($geocodingResponse->status) && $geocodingResponse->status != "OK" && isset($geocodingResponse->error_message))
-        {
+        if (isset($geocodingResponse->status) && $geocodingResponse->status != "OK" && isset($geocodingResponse->error_message)) {
             throw new Exception($geocodingResponse->status . ' : ' . $geocodingResponse->error_message);
         }
 
@@ -94,8 +93,7 @@ class Geocoder
         $reverseGeocodingResponse = json_decode($response->getBody());
 
         // Exception for google api error response
-        if(isset($reverseGeocodingResponse->status) && $reverseGeocodingResponse->status != "OK" && isset($geocodingResponse->error_message))
-        {
+        if (isset($reverseGeocodingResponse->status) && $reverseGeocodingResponse->status != "OK" && isset($geocodingResponse->error_message)) {
             throw new Exception($reverseGeocodingResponse->status . ' : ' . $reverseGeocodingResponse->error_message);
         }
 
